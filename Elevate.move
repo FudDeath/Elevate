@@ -83,12 +83,12 @@ module FW::mecha_character {
         character: &mut MechaCharacter,
         trait_updates: vector<u8>,
     ) {
-        assert!(vector::length(&trait_updates) == 9, 0); // Ensure we have updates for all traits
+        assert!(vector::length(&trait_updates) == 9, 0);
         
         let mut i = 0;
         while (i < 9) {
             let new_value = *vector::borrow(&trait_updates, i);
-            assert!(new_value == 0 || new_value == 1, 1); // Ensure each value is either 0 or 1
+            assert!(new_value == 0 || new_value == 1, 1);
             *vector::borrow_mut(&mut character.traits, i) = new_value;
             i = i + 1;
         };
